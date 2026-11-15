@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090b13">
+  <title>PARTABLES — Casino</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Partables home"><span class="brand-mark">P</span><span>PARTABLES</span></a>
+      <button class="avatar" id="profileButton" aria-label="Профиль">?</button>
+    </header>
+    <main>
+      <section class="hero panel">
+        <div class="hero-copy">
+          <span class="eyebrow">ТВОЯ ИГРОВАЯ ЗОНА</span>
+          <h1>Играй красиво.<br><span>Побеждай честно.</span></h1>
+          <p>Игровые режимы, рейтинги и ежедневные награды.</p>
+        </div>
+        <div class="hero-orb"><div class="orb-core">✦</div></div>
+      </section>
+      <section class="balance panel">
+        <div><span class="muted">ИГРОВОЙ БАЛАНС</span><div class="balance-value"><strong id="balance">10 000</strong><span>₵</span></div></div>
+        <button class="primary-button" id="topupButton">Пополнить</button>
+      </section>
+      <nav class="tabs" aria-label="Разделы">
+        <button class="tab active" data-page="games">Игры</button>
+        <button class="tab" data-page="leaders">Топы</button>
+        <button class="tab" data-page="bonuses">Бонусы</button>
+        <button class="tab" data-page="profile">Профиль</button>
+      </nav>
+      <section id="gamesPage" class="page">
+        <div class="section-heading"><div><span class="eyebrow">ВЫБИРАЙ РЕЖИМ</span><h2>Игровой зал</h2></div><span class="count">12 РЕЖИМОВ</span></div>
+        <div class="games-grid" id="gamesGrid"></div>
+      </section>
+      <section id="leadersPage" class="page hidden">
+        <div class="section-heading"><div><span class="eyebrow">СОРЕВНУЙСЯ</span><h2>Лидеры</h2></div></div>
+        <div class="switcher"><button class="active" data-period="day">Топ дня</button><button data-period="week">Топ недели</button></div>
+        <div class="panel leaderboard" id="leaderboard"></div>
+        <p class="hint">Награды за виртуальные игровые достижения. Итоги дня — 00:00 МСК, недели — воскресенье 00:00 МСК.</p>
+      </section>
+      <section id="bonusesPage" class="page hidden">
+        <div class="section-heading"><div><span class="eyebrow">ЗАХОДИ КАЖДЫЙ ДЕНЬ</span><h2>Бонусы</h2></div></div>
+        <article class="bonus-card panel"><div class="bonus-icon">✦</div><div><h3>Ежедневный бонус</h3><p>Забирай награду за вход каждый день.</p></div><button class="primary-button" id="dailyBonus">Забрать</button></article>
+        <article class="bonus-card panel"><div class="bonus-icon">♧</div><div><h3>Приглашай друзей</h3><p>Реферальная программа появится в следующем этапе.</p></div><button class="secondary-button" disabled>Скоро</button></article>
+      </section>
+      <section id="profilePage" class="page hidden">
+        <div class="section-heading"><div><span class="eyebrow">ТВОЯ СТАТИСТИКА</span><h2>Профиль</h2></div></div>
+        <div class="panel profile-card"><div class="profile-avatar" id="profileAvatar">?</div><div><h3 id="profileName">Игрок</h3><p class="muted">Участник PARTABLES</p></div></div>
+        <div class="stats-grid"><div class="panel stat"><span>Игр сыграно</span><b id="gamesPlayed">0</b></div><div class="panel stat"><span>Побед</span><b id="wins">0</b></div></div>
+      </section>
+      <section id="gameView" class="page hidden">
+        <button class="back-button" id="backToGames">← Все игры</button>
+        <div class="game-banner panel" id="gameBanner"><span id="gameSymbol">✦</span><div><span class="eyebrow">ИГРОВОЙ РЕЖИМ</span><h2 id="gameTitle">Игра</h2></div></div>
+        <div class="panel game-console">
+          <div class="result-display" id="resultDisplay">ГОТОВ?</div>
+          <label for="betInput">Размер ставки</label>
+          <div class="bet-row"><input id="betInput" type="number" min="10" step="10" value="100"><span>₵</span></div>
+          <div class="quick-bets"><button data-bet="50">+50</button><button data-bet="100">+100</button><button data-bet="500">+500</button><button data-bet="1000">+1000</button></div>
+          <button class="primary-button play-button" id="playButton">Играть</button>
+          <p class="hint">Демонстрационный интерфейс. Результаты и списание баланса пока не подключены к серверной игровой логике.</p>
+        </div>
+      </section>
+    </main>
+    <footer>PARTABLES <span>•</span> ИГРОВАЯ ПЛАТФОРМА</footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
